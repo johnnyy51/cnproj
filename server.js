@@ -8,8 +8,9 @@ function requireHTTPS(req, res, next) {
 const express = require('express');
 const app = express();
 app.use(requireHTTPS);
-app.use(express.static('/dist/angular-crud'));
+app.use(express.static('./dist/angular-crud/'));
 app.get('/*', function(req, res) {
-  res.sendFile('index.html', { root: '/dist/angular-crud'}
+  res.sendFile('index.html', { root: 'dist/angular-crud/'}
 );
 });
+app.listen(process.env.PORT || 8080);
